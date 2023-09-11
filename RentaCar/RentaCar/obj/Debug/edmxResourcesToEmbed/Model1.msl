@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RentaCarModelStoreContainer" CdmEntityContainer="RentaCarEntities">
+    <EntitySetMapping Name="Branches">
+      <EntityTypeMapping TypeName="RentaCarModel.Branch">
+        <MappingFragment StoreEntitySet="Branch">
+          <ScalarProperty Name="carStock" ColumnName="carStock" />
+          <ScalarProperty Name="branchSalary" ColumnName="branchSalary" />
+          <ScalarProperty Name="branchEmployeeCount" ColumnName="branchEmployeeCount" />
+          <ScalarProperty Name="branchName" ColumnName="branchName" />
+          <ScalarProperty Name="branchID" ColumnName="branchID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="RentaCarModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="customerDownPayment" ColumnName="customerDownPayment" />
+          <ScalarProperty Name="customerBudget" ColumnName="customerBudget" />
+          <ScalarProperty Name="customerAge" ColumnName="customerAge" />
+          <ScalarProperty Name="customerPhone" ColumnName="customerPhone" />
+          <ScalarProperty Name="customerNameSurname" ColumnName="customerNameSurname" />
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Personels">
+      <EntityTypeMapping TypeName="RentaCarModel.Personel">
+        <MappingFragment StoreEntitySet="Personel">
+          <ScalarProperty Name="branchID" ColumnName="branchID" />
+          <ScalarProperty Name="personelWage" ColumnName="personelWage" />
+          <ScalarProperty Name="personelMail" ColumnName="personelMail" />
+          <ScalarProperty Name="personelTitle" ColumnName="personelTitle" />
+          <ScalarProperty Name="personelPhone" ColumnName="personelPhone" />
+          <ScalarProperty Name="personelNameSurname" ColumnName="personelNameSurname" />
+          <ScalarProperty Name="personelID" ColumnName="personelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicles">
+      <EntityTypeMapping TypeName="RentaCarModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicles">
+          <ScalarProperty Name="branchID" ColumnName="branchID" />
+          <ScalarProperty Name="customerID" ColumnName="customerID" />
+          <ScalarProperty Name="vehicleGear" ColumnName="vehicleGear" />
+          <ScalarProperty Name="vehicleColor" ColumnName="vehicleColor" />
+          <ScalarProperty Name="vehiclePackage" ColumnName="vehiclePackage" />
+          <ScalarProperty Name="vehicleMotor" ColumnName="vehicleMotor" />
+          <ScalarProperty Name="vehicleYear" ColumnName="vehicleYear" />
+          <ScalarProperty Name="vehicleModel" ColumnName="vehicleModel" />
+          <ScalarProperty Name="vehicleBrand" ColumnName="vehicleBrand" />
+          <ScalarProperty Name="vehicleNumberPlate" ColumnName="vehicleNumberPlate" />
+          <ScalarProperty Name="vehiclePrice" ColumnName="vehiclePrice" />
+          <ScalarProperty Name="vehicleID" ColumnName="vehicleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

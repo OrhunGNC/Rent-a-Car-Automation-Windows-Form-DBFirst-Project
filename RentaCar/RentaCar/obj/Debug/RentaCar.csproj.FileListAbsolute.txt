@@ -1,0 +1,53 @@
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.csproj.AssemblyReference.cache
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.csproj.SuggestedBindingRedirects.cache
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.Form1.resources
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.Properties.Resources.resources
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.csproj.GenerateResource.cache
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.csproj.CoreCompileInputs.cache
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\bin\Debug\RentaCar.exe.config
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\bin\Debug\RentaCar.exe
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\bin\Debug\RentaCar.pdb
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\bin\Debug\EntityFramework.dll
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\bin\Debug\EntityFramework.xml
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.CustomerLogin.resources
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.PersonelLogin.resources
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.csproj.CopyComplete
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.exe
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.pdb
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.Branchs.resources
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.CustomerInterface.resources
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.Customers.resources
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.PersonelInterface.resources
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.Personels.resources
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.Vehicles.resources
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.CustomerRegister.resources
+C:\Users\BRIGHT\Desktop\konsol örnekleri\RentaCar\RentaCar\obj\Debug\RentaCar.PersonelSignup.resources
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.csproj.AssemblyReference.cache
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.csproj.SuggestedBindingRedirects.cache
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.Branchs.resources
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.CustomerInterface.resources
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.CustomerLogin.resources
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.CustomerRegister.resources
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.Customers.resources
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.Form1.resources
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.PersonelInterface.resources
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.PersonelLogin.resources
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.Personels.resources
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.PersonelSignup.resources
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.Properties.Resources.resources
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.Vehicles.resources
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.csproj.GenerateResource.cache
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.csproj.CoreCompileInputs.cache
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.exe
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.pdb
+C:\Users\pc\Desktop\RentaCar\RentaCar\bin\Debug\RentaCar.exe.config
+C:\Users\pc\Desktop\RentaCar\RentaCar\bin\Debug\RentaCar.exe
+C:\Users\pc\Desktop\RentaCar\RentaCar\bin\Debug\RentaCar.pdb
+C:\Users\pc\Desktop\RentaCar\RentaCar\bin\Debug\EntityFramework.dll
+C:\Users\pc\Desktop\RentaCar\RentaCar\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pc\Desktop\RentaCar\RentaCar\bin\Debug\EntityFramework.xml
+C:\Users\pc\Desktop\RentaCar\RentaCar\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.csproj.CopyComplete
+C:\Users\pc\Desktop\RentaCar\RentaCar\obj\Debug\RentaCar.Reports.resources

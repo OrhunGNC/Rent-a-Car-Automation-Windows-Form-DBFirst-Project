@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RentaCarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="branchID" />
+          </Key>
+          <Property Name="branchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="branchName" Type="varchar" MaxLength="50" />
+          <Property Name="branchEmployeeCount" Type="int" />
+          <Property Name="branchSalary" Type="money" />
+          <Property Name="carStock" Type="int" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Name="customerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customerNameSurname" Type="varchar" MaxLength="50" />
+          <Property Name="customerPhone" Type="varchar" MaxLength="11" />
+          <Property Name="customerAge" Type="int" />
+          <Property Name="customerBudget" Type="money" />
+          <Property Name="customerDownPayment" Type="money" />
+        </EntityType>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="personelID" />
+          </Key>
+          <Property Name="personelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="personelNameSurname" Type="varchar" MaxLength="50" />
+          <Property Name="personelPhone" Type="varchar" MaxLength="11" />
+          <Property Name="personelTitle" Type="varchar" MaxLength="50" />
+          <Property Name="personelMail" Type="varchar" MaxLength="50" />
+          <Property Name="personelWage" Type="money" />
+          <Property Name="branchID" Type="int" />
+        </EntityType>
+        <EntityType Name="Vehicles">
+          <Key>
+            <PropertyRef Name="vehicleID" />
+          </Key>
+          <Property Name="vehicleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vehiclePrice" Type="money" />
+          <Property Name="vehicleNumberPlate" Type="int" />
+          <Property Name="vehicleBrand" Type="varchar" MaxLength="50" />
+          <Property Name="vehicleModel" Type="varchar" MaxLength="50" />
+          <Property Name="vehicleYear" Type="varchar" MaxLength="50" />
+          <Property Name="vehicleMotor" Type="varchar" MaxLength="50" />
+          <Property Name="vehiclePackage" Type="varchar" MaxLength="50" />
+          <Property Name="vehicleColor" Type="varchar" MaxLength="50" />
+          <Property Name="vehicleGear" Type="varchar" MaxLength="50" />
+          <Property Name="customerID" Type="int" />
+          <Property Name="branchID" Type="int" />
+        </EntityType>
+        <Association Name="FK_Personel_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Personel" Type="Self.Personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="branchID" />
+            </Principal>
+            <Dependent Role="Personel">
+              <PropertyRef Name="branchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicles_Branch">
+          <End Role="Branch" Type="Self.Branch" Multiplicity="0..1" />
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="branchID" />
+            </Principal>
+            <Dependent Role="Vehicles">
+              <PropertyRef Name="branchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicles_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="Vehicles">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RentaCarModelStoreContainer">
+          <EntitySet Name="Branch" EntityType="Self.Branch" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Personel" EntityType="Self.Personel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Personel_Branch" Association="Self.FK_Personel_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Personel" EntitySet="Personel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Branch" Association="Self.FK_Vehicles_Branch">
+            <End Role="Branch" EntitySet="Branch" />
+            <End Role="Vehicles" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Customers" Association="Self.FK_Vehicles_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Vehicles" EntitySet="Vehicles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RentaCarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="RentaCarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Branches" EntityType="RentaCarModel.Branch" />
+          <EntitySet Name="Customers" EntityType="RentaCarModel.Customer" />
+          <EntitySet Name="Personels" EntityType="RentaCarModel.Personel" />
+          <EntitySet Name="Vehicles" EntityType="RentaCarModel.Vehicle" />
+          <AssociationSet Name="FK_Personel_Branch" Association="RentaCarModel.FK_Personel_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Personel" EntitySet="Personels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Branch" Association="RentaCarModel.FK_Vehicles_Branch">
+            <End Role="Branch" EntitySet="Branches" />
+            <End Role="Vehicle" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Customers" Association="RentaCarModel.FK_Vehicles_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Vehicle" EntitySet="Vehicles" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="branchID" />
+          </Key>
+          <Property Name="branchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="branchName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="branchEmployeeCount" Type="Int32" />
+          <Property Name="branchSalary" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="carStock" Type="Int32" />
+          <NavigationProperty Name="Personels" Relationship="RentaCarModel.FK_Personel_Branch" FromRole="Branch" ToRole="Personel" />
+          <NavigationProperty Name="Vehicles" Relationship="RentaCarModel.FK_Vehicles_Branch" FromRole="Branch" ToRole="Vehicle" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Name="customerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customerNameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="customerPhone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="customerAge" Type="Int32" />
+          <Property Name="customerBudget" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="customerDownPayment" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Vehicles" Relationship="RentaCarModel.FK_Vehicles_Customers" FromRole="Customer" ToRole="Vehicle" />
+        </EntityType>
+        <EntityType Name="Personel">
+          <Key>
+            <PropertyRef Name="personelID" />
+          </Key>
+          <Property Name="personelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="personelNameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="personelPhone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="personelTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="personelMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="personelWage" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="branchID" Type="Int32" />
+          <NavigationProperty Name="Branch" Relationship="RentaCarModel.FK_Personel_Branch" FromRole="Personel" ToRole="Branch" />
+        </EntityType>
+        <EntityType Name="Vehicle">
+          <Key>
+            <PropertyRef Name="vehicleID" />
+          </Key>
+          <Property Name="vehicleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vehiclePrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="vehicleNumberPlate" Type="Int32" />
+          <Property Name="vehicleBrand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vehicleModel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vehicleYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vehicleMotor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vehiclePackage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vehicleColor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="vehicleGear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="customerID" Type="Int32" />
+          <Property Name="branchID" Type="Int32" />
+          <NavigationProperty Name="Branch" Relationship="RentaCarModel.FK_Vehicles_Branch" FromRole="Vehicle" ToRole="Branch" />
+          <NavigationProperty Name="Customer" Relationship="RentaCarModel.FK_Vehicles_Customers" FromRole="Vehicle" ToRole="Customer" />
+        </EntityType>
+        <Association Name="FK_Personel_Branch">
+          <End Type="RentaCarModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="RentaCarModel.Personel" Role="Personel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="branchID" />
+            </Principal>
+            <Dependent Role="Personel">
+              <PropertyRef Name="branchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicles_Branch">
+          <End Type="RentaCarModel.Branch" Role="Branch" Multiplicity="0..1" />
+          <End Type="RentaCarModel.Vehicle" Role="Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Branch">
+              <PropertyRef Name="branchID" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="branchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicles_Customers">
+          <End Type="RentaCarModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="RentaCarModel.Vehicle" Role="Vehicle" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="Vehicle">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RentaCarModelStoreContainer" CdmEntityContainer="RentaCarEntities">
+          <EntitySetMapping Name="Branches">
+            <EntityTypeMapping TypeName="RentaCarModel.Branch">
+              <MappingFragment StoreEntitySet="Branch">
+                <ScalarProperty Name="carStock" ColumnName="carStock" />
+                <ScalarProperty Name="branchSalary" ColumnName="branchSalary" />
+                <ScalarProperty Name="branchEmployeeCount" ColumnName="branchEmployeeCount" />
+                <ScalarProperty Name="branchName" ColumnName="branchName" />
+                <ScalarProperty Name="branchID" ColumnName="branchID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="RentaCarModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="customerDownPayment" ColumnName="customerDownPayment" />
+                <ScalarProperty Name="customerBudget" ColumnName="customerBudget" />
+                <ScalarProperty Name="customerAge" ColumnName="customerAge" />
+                <ScalarProperty Name="customerPhone" ColumnName="customerPhone" />
+                <ScalarProperty Name="customerNameSurname" ColumnName="customerNameSurname" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Personels">
+            <EntityTypeMapping TypeName="RentaCarModel.Personel">
+              <MappingFragment StoreEntitySet="Personel">
+                <ScalarProperty Name="branchID" ColumnName="branchID" />
+                <ScalarProperty Name="personelWage" ColumnName="personelWage" />
+                <ScalarProperty Name="personelMail" ColumnName="personelMail" />
+                <ScalarProperty Name="personelTitle" ColumnName="personelTitle" />
+                <ScalarProperty Name="personelPhone" ColumnName="personelPhone" />
+                <ScalarProperty Name="personelNameSurname" ColumnName="personelNameSurname" />
+                <ScalarProperty Name="personelID" ColumnName="personelID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="RentaCarModel.Vehicle">
+              <MappingFragment StoreEntitySet="Vehicles">
+                <ScalarProperty Name="branchID" ColumnName="branchID" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="vehicleGear" ColumnName="vehicleGear" />
+                <ScalarProperty Name="vehicleColor" ColumnName="vehicleColor" />
+                <ScalarProperty Name="vehiclePackage" ColumnName="vehiclePackage" />
+                <ScalarProperty Name="vehicleMotor" ColumnName="vehicleMotor" />
+                <ScalarProperty Name="vehicleYear" ColumnName="vehicleYear" />
+                <ScalarProperty Name="vehicleModel" ColumnName="vehicleModel" />
+                <ScalarProperty Name="vehicleBrand" ColumnName="vehicleBrand" />
+                <ScalarProperty Name="vehicleNumberPlate" ColumnName="vehicleNumberPlate" />
+                <ScalarProperty Name="vehiclePrice" ColumnName="vehiclePrice" />
+                <ScalarProperty Name="vehicleID" ColumnName="vehicleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

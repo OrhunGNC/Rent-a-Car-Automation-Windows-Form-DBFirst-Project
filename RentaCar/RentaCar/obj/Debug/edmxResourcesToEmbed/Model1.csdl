@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RentaCarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="RentaCarEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Branches" EntityType="RentaCarModel.Branch" />
+    <EntitySet Name="Customers" EntityType="RentaCarModel.Customer" />
+    <EntitySet Name="Personels" EntityType="RentaCarModel.Personel" />
+    <EntitySet Name="Vehicles" EntityType="RentaCarModel.Vehicle" />
+    <AssociationSet Name="FK_Personel_Branch" Association="RentaCarModel.FK_Personel_Branch">
+      <End Role="Branch" EntitySet="Branches" />
+      <End Role="Personel" EntitySet="Personels" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_Branch" Association="RentaCarModel.FK_Vehicles_Branch">
+      <End Role="Branch" EntitySet="Branches" />
+      <End Role="Vehicle" EntitySet="Vehicles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehicles_Customers" Association="RentaCarModel.FK_Vehicles_Customers">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="Vehicle" EntitySet="Vehicles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Branch">
+    <Key>
+      <PropertyRef Name="branchID" />
+    </Key>
+    <Property Name="branchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="branchName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="branchEmployeeCount" Type="Int32" />
+    <Property Name="branchSalary" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="carStock" Type="Int32" />
+    <NavigationProperty Name="Personels" Relationship="RentaCarModel.FK_Personel_Branch" FromRole="Branch" ToRole="Personel" />
+    <NavigationProperty Name="Vehicles" Relationship="RentaCarModel.FK_Vehicles_Branch" FromRole="Branch" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="customerID" />
+    </Key>
+    <Property Name="customerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customerNameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="customerPhone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="customerAge" Type="Int32" />
+    <Property Name="customerBudget" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="customerDownPayment" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Vehicles" Relationship="RentaCarModel.FK_Vehicles_Customers" FromRole="Customer" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Personel">
+    <Key>
+      <PropertyRef Name="personelID" />
+    </Key>
+    <Property Name="personelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="personelNameSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="personelPhone" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="personelTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="personelMail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="personelWage" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="branchID" Type="Int32" />
+    <NavigationProperty Name="Branch" Relationship="RentaCarModel.FK_Personel_Branch" FromRole="Personel" ToRole="Branch" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="vehicleID" />
+    </Key>
+    <Property Name="vehicleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vehiclePrice" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="vehicleNumberPlate" Type="Int32" />
+    <Property Name="vehicleBrand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vehicleModel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vehicleYear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vehicleMotor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vehiclePackage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vehicleColor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vehicleGear" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="customerID" Type="Int32" />
+    <Property Name="branchID" Type="Int32" />
+    <NavigationProperty Name="Branch" Relationship="RentaCarModel.FK_Vehicles_Branch" FromRole="Vehicle" ToRole="Branch" />
+    <NavigationProperty Name="Customer" Relationship="RentaCarModel.FK_Vehicles_Customers" FromRole="Vehicle" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK_Personel_Branch">
+    <End Type="RentaCarModel.Branch" Role="Branch" Multiplicity="0..1" />
+    <End Type="RentaCarModel.Personel" Role="Personel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="branchID" />
+      </Principal>
+      <Dependent Role="Personel">
+        <PropertyRef Name="branchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_Branch">
+    <End Type="RentaCarModel.Branch" Role="Branch" Multiplicity="0..1" />
+    <End Type="RentaCarModel.Vehicle" Role="Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Branch">
+        <PropertyRef Name="branchID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="branchID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehicles_Customers">
+    <End Type="RentaCarModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="RentaCarModel.Vehicle" Role="Vehicle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="customerID" />
+      </Principal>
+      <Dependent Role="Vehicle">
+        <PropertyRef Name="customerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
